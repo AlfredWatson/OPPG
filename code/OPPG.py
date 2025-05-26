@@ -6,7 +6,6 @@ import random
 import argparse
 from langcodes import Language
 import sys
-sys.path.append("/home/wp/item/debate/Chapter")
 from utils.degree import Agent 
 from datetime import datetime
 from tqdm import tqdm
@@ -258,8 +257,8 @@ class Debate:
 def parse_args():
     parser = argparse.ArgumentParser("", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument("-i", "--input-file", type=str,default="/home/wp/item/debate/Chapter/data/data.txt",  help="Input file path")
-    parser.add_argument("-o", "--output-dir", type=str,default="/home/wp/item/debate/Chapter/output", help="Output file dir")
+    parser.add_argument("-i", "--input-file", type=str,default="Input_Path",  help="Input file path")
+    parser.add_argument("-o", "--output-dir", type=str,default="Output_Path", help="Output file dir")
     parser.add_argument("-k", "--api-key", type=str, default="",help="OpenAI api key")
     parser.add_argument("-m", "--model-name", type=str, default="qwen2.5:72b-instruct", help="Model name")
     parser.add_argument("-t", "--temperature", type=float, default=0, help="Sampling temperature")

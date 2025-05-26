@@ -4,8 +4,6 @@ from sklearn import metrics
 
 def calculate_metrics(data_folder):
     """
-    计算预测结果的准确率、召回率、精确率、F1，以及混淆矩阵。
-
     :param data_folder: 包含 JSON 文件的文件夹路径
     :return: (accuracy, classification_report, confusion_matrix)
     """
@@ -56,4 +54,4 @@ def calculate_metrics(data_folder):
 
 # 示例用法
 # 请将 "output" 替换为你的 JSON 文件夹路径
-calculate_metrics("/home/wp/item/debate/Chapter/output")
+calculate_metrics("Output_Path")
