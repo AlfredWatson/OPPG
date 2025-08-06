@@ -8,8 +8,8 @@
     "summary": "",
     "player_meta_prompt": "",
     "moderator_meta_prompt": "",
-    "grade1_prompt": "你是一个典型的一年级或二年级的学生，判断输入的课文1-2年级的学生是否可以完全理解？/n/n##source##/n/n请返回json格式，不要有多余的符号:评估结果：是/否",
-    "grade2_prompt": "你是一个典型的三年级或四年级的学生，判断输入的课文3-4年级的学生是否可以完全理解？/n/n##source##/n/n请返回json格式，不要有多余的符号:评估结果：是/否",
-    "grade3_prompt": "你是一个典型的五年级或六年级的学生，判断输入的课文5-6年级的学生是否可以完全理解？/n/n##source##/n/n请返回json格式，不要有多余的符号:评估结果：是/否",
-    "grade4_prompt": "你是一个典型的初中的学生，判断输入的课文初中的学生是否可以完全理解？/n/n##source##/n/n请返回json格式，不要有多余的符号:评估结果：是/否",
+    "grade1_prompt": "Please pretend to be a reader at Level 1, and assess whether you can understand the following text.",
+    "grade2_prompt": "Please pretend to be a reader at Level 2, and assess whether you can understand the following text.",
+    "grade3_prompt": "Please pretend to be a reader at Level 3, and assess whether you can understand the following text.",
+    "grade4_prompt": "Please pretend to be a reader at Level 4, and assess whether you can understand the following text.",
      }

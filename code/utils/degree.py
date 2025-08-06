@@ -92,7 +92,7 @@ class Agent:
         data = {
             "model": "gpt-3.5-turbo",  
             "messages": [
-                {"role": "system", "content": "你是一个典型的一年级或二年级的学生，判断输入的课文1-2年级的学生是否可以完全理解？直接给出分析过程（词汇难度、语法结构、主题内容）和评判结果（是或否）\n"},
+                {"role": "system", "content": ""},
                 {"role": "user", "content": text}
             ], 
             "max_tokens": 512,
@@ -118,7 +118,7 @@ class Agent:
         data = {
             "model": "gpt-3.5-turbo",  
             "messages": [
-                {"role": "system", "content": "你是一个典型的三年级或四年级的学生，判断输入的课文3-4年级的学生是否可以完全理解？直接给出分析过程（词汇难度、语法结构、主题内容）和评判结果（是或否）\n"},
+                {"role": "system", "content": ""},
                 {"role": "user", "content": text}
             ], 
             "max_tokens": 512,
@@ -145,7 +145,7 @@ class Agent:
         data = {
             "model": "gpt-3.5-turbo",  
             "messages": [
-                {"role": "system", "content": "你是一个典型的五年级或六年级的学生，判断输入的课文5-6年级的学生是否可以完全理解？直接给出分析过程（词汇难度、语法结构、主题内容）和评判结果（是或否）\n"},
+                {"role": "system", "content": ""},
                 {"role": "user", "content": text}
             ], 
             "max_tokens": 512,
@@ -171,7 +171,7 @@ class Agent:
         data = {
             "model": "gpt-3.5-turbo",  
             "messages": [
-                {"role": "system", "content": "你是一个典型的初中的学生，判断输入的课文初中的学生是否可以完全理解？直接给出分析过程（词汇难度、语法结构、主题内容）和评判结果（是或否）\n"},
+                {"role": "system", "content": ""},
                 {"role": "user", "content": text}
             ], 
             "max_tokens": 512,

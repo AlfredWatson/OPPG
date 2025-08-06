@@ -146,11 +146,11 @@ class Debate:
                 agent.add_memory(response)
                 try:
                     parsed = repair_json(response, return_objects=True)
-                    result = parsed.get("评判结果", "")
-                    if result in ["是", "否"]:
+                    result = parsed.get("Evaluation result:", "")
+                    if result in ["Yes", "No"]:
                         answers.append(result)
                 except Exception as e:
-                    print(f"解析失败: {e}")
+                    print(f"fail: {e}")
             return get_majority_answer(answers)
 
         # 多temperature问答 + 聚合
@@ -160,35 +160,35 @@ class Debate:
         self.grade4_ans = query_and_aggregate(self.grade4, "ask_grade4")
 
         def check_conflict(sequence):
-            yes_positions = [i for i, v in enumerate(sequence) if v == '是']
-            no_positions = [i for i, v in enumerate(sequence) if v == '否']
+            yes_positions = [i for i, v in enumerate(sequence) if v == 'Yes']
+            no_positions = [i for i, v in enumerate(sequence) if v == 'No']
             if not yes_positions or not no_positions:
                 return 'no', ''
-            if sequence == ['否', '否', '否', '是']:
+            if sequence == ['No', 'No', 'No', 'Yes']:
                 return 'no', ''
-            if sequence == ['否', '否', '是', '是']:
+            if sequence == ['No', 'No', 'Yes', 'Yes']:
                 return 'no', ''
-            if sequence == ['否', '是', '是', '是']:
+            if sequence == ['No', 'Yes', 'Yes', 'Yes']:
                 return 'no', ''
-            if sequence == ['是', '否', '是', '是']:
+            if sequence == ['Yes', 'No', 'Yes', 'Yes']:
                 return 'yes', '3'
-            if sequence == ['否', '是', '否', '是']:
+            if sequence == ['No', 'Yes', 'No', 'Yes']:
                 return 'yes', '4'
-            if sequence == ['否', '否', '是', '否']:
+            if sequence == ['No', 'No', 'Yes', 'No']:
                 return 'yes', '5'
             return 'yes', 'unknown'
 
-        def determine_final_degree(sequence, conflict,conflict_num):
+        def determine_final_degree(sequence, conflict, conflict_num):
             if conflict == 'no':
-                if all(v == '是' for v in sequence):
+                if all(v == 'Yes' for v in sequence):
                     return '1'
-                if all(v == '否' for v in sequence):
+                if all(v == 'No' for v in sequence):
                     return '5'
-                if sequence == ['否', '否', '否', '是']:
+                if sequence == ['No', 'No', 'No', 'Yes']:
                     return '4'
-                if sequence == ['否', '否', '是', '是']:
+                if sequence == ['No', 'No', 'Yes', 'Yes']:
                     return '3'
-                if sequence == ['否', '是', '是', '是']:
+                if sequence == ['No', 'Yes', 'Yes', 'Yes']:
                     return '2'
             if conflict == 'yes':
                 return conflict_num
